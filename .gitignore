@@ -1,0 +1,25 @@
+# node_modules and build directories
+**/node_modules/
+**/dist/
+
+# Keep these files for TA deployment
+# .env
+# client/.env.local
+# client/.env.development
+# client/.env.production
+# server/.env
+
+# Next.js build
+client/.next/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+
+# Local DynamoDB data
+# server/shared-local-instance.db
+# server/dynamodb-local-metadata.json
+# shared-local-instance.db

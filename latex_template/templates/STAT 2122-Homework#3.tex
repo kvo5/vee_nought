@@ -1,0 +1,444 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\geometry{letterpaper, margin=1in}
+
+\title{Intro to Prob \& Stat: Homework \#3} 
+\author{Kenny Vo}
+\date{9/24/24} 
+
+\begin{document}
+
+\maketitle
+
+% Problem 1
+\section*{Problem 1: Probability of Credit Card Ownership}
+
+Consider randomly selecting a student at a large university, and let $A$ be the event that the selected student has a Visa card and $B$ be the analogous event for MasterCard and $C$ be the event that the selected student has an American Express card. In addition to $P(A) = 0.6$, $P(B) = 0.4$ and $P(A \cap B) = 0.3$, suppose that $P(C) = 0.2$, $P(A \cap C) = 0.15$, $P(B \cap C) = 0.1$, and $P(A \cap B \cap C) = 0.08$.
+
+
+We are given the following probabilities:
+
+\[
+\begin{aligned}
+P(A) &= 0.6 & &\text{(Student has a Visa card)} \\
+P(B) &= 0.4 & &\text{(Student has a MasterCard)} \\
+P(C) &= 0.2 & &\text{(Student has an American Express card)} \\
+P(A \cap B) &= 0.3 & &\text{(Has both Visa and MasterCard)} \\
+P(A \cap C) &= 0.15 & &\text{(Has both Visa and American Express)} \\
+P(B \cap C) &= 0.1 & &\text{(Has both MasterCard and American Express)} \\
+P(A \cap B \cap C) &= 0.08 & &\text{(Has all three cards)}
+\end{aligned}
+\]
+
+\subsubsection*{(a) If we learn that the selected student has an American Express card, what is the probability that she or he also has both a Visa card and a MasterCard?}
+
+We need to find the conditional probability \( P(A \cap B \mid C) \).
+
+\textbf{Using the formula for conditional probability:}
+\[
+P(A \cap B \mid C) = \frac{P(A \cap B \cap C)}{P(C)}
+\]
+
+\textbf{Substituting the given values:}
+\[
+P(A \cap B \mid C) = \frac{0.08}{0.2} = 0.4
+\]
+
+The probability that the student has both a Visa card and a MasterCard, given that they have an American Express card, is \textbf{0.4} or \textbf{40\%}.
+
+\subsubsection*{(b) Given that the selected student has an American Express card, what is the probability that she or he has at least one of the other two types of cards?}
+
+We need to find \( P(A \cup B \mid C) \), the probability that the student has at least one of the other two cards (Visa or MasterCard), given they have an American Express card.
+
+\textbf{First, calculate \( P((A \cup B) \cap C) \) using the Inclusion-Exclusion Principle:}
+\[
+\begin{aligned}
+P((A \cup B) \cap C) &= P(A \cap C) + P(B \cap C) - P(A \cap B \cap C) \\
+&= 0.15 + 0.1 - 0.08 = 0.17
+\end{aligned}
+\]
+
+\textbf{Then, apply the formula for conditional probability:}
+\[
+P(A \cup B \mid C) = \frac{P((A \cup B) \cap C)}{P(C)} = \frac{0.17}{0.2} = 0.85
+\]
+
+The probability that the student has at least one of the other two types of cards, given that they have an American Express card, is \textbf{0.85} or \textbf{85\%}.
+
+
+% Problem 2
+\section*{Problem 2: Probability of Functioning Audio Components}
+
+Consider purchasing a system of audio components consisting of a receiver, a pair of speakers, and a CD player. Let \(A_1\) be the event that the receiver functions properly throughout the warranty period, \(A_2\) be the event that the speakers function properly throughout the warranty period, and \(A_3\) be the event that the CD player functions properly throughout the warranty period. Suppose that these events are mutually independent with
+\[
+P(A_1) = 0.95, \quad P(A_2) = 0.98, \quad P(A_3) = 0.8.
+\]
+
+We will solve the following questions:
+
+\subsection*{(a) What is the probability that all three components function properly throughout the warranty period?}
+
+Since \(A_1\), \(A_2\), and \(A_3\) are independent events, the probability that all three components function properly is the product of their individual probabilities:
+\[
+P(A_1 \cap A_2 \cap A_3) = P(A_1) \times P(A_2) \times P(A_3)
+\]
+Substituting the given values:
+\[
+P(A_1 \cap A_2 \cap A_3) = 0.95 \times 0.98 \times 0.8
+\]
+Calculating this, we get:
+\[
+P(A_1 \cap A_2 \cap A_3) = 0.7448
+\]
+Therefore, the probability that all three components function properly throughout the warranty period is 0.7448 or 74.48\%.
+
+\subsection*{(b) What is the probability that at least one component needs service during the warranty period?}
+
+The probability that at least one component needs service is the complement of the probability that all components function properly:
+\[
+P(\text{at least one needs service}) = 1 - P(A_1 \cap A_2 \cap A_3)
+\]
+Substituting the value from part (a):
+\[
+P(\text{at least one needs service}) = 1 - 0.7448
+\]
+\[
+P(\text{at least one needs service}) = 0.2552
+\]
+Therefore, the probability that at least one component needs service during the warranty period is 0.2552 or 25.52\%.
+
+\subsection*{(c) What is the probability that all three components need service during the warranty period?}
+
+For all three components to need service, none of them should function properly. The probability that each component fails is the complement of the probability that it functions properly:
+\[
+P(A_1^c) = 1 - P(A_1) = 1 - 0.95 = 0.05
+\]
+\[
+P(A_2^c) = 1 - P(A_2) = 1 - 0.98 = 0.02
+\]
+\[
+P(A_3^c) = 1 - P(A_3) = 1 - 0.8 = 0.2
+\]
+Since these events are independent, the probability that all three components fail is:
+\[
+P(A_1^c \cap A_2^c \cap A_3^c) = P(A_1^c) \times P(A_2^c) \times P(A_3^c)
+\]
+\[
+P(A_1^c \cap A_2^c \cap A_3^c) = 0.05 \times 0.02 \times 0.2
+\]
+\[
+P(A_1^c \cap A_2^c \cap A_3^c) = 0.0002
+\]
+Therefore, the probability that all three components need service during the warranty period is 0.0002 or 0.02\%.
+
+\subsection*{(d) What is the probability that only the receiver needs service during the warranty period?}
+
+For only the receiver to need service, the receiver must fail while the other two components function properly. Therefore, we need:
+\[
+P(A_1^c \cap A_2 \cap A_3) = P(A_1^c) \times P(A_2) \times P(A_3)
+\]
+Substituting the values:
+\[
+P(A_1^c \cap A_2 \cap A_3) = 0.05 \times 0.98 \times 0.8
+\]
+\[
+P(A_1^c \cap A_2 \cap A_3) = 0.0392
+\]
+Therefore, the probability that only the receiver needs service is 0.0392 or 3.92\%.
+
+\subsection*{(e) What is the probability that exactly one of the three components needs service during the warranty period?}
+
+To find the probability that exactly one component needs service, we consider three scenarios:
+1. Only the receiver needs service: \(P(A_1^c \cap A_2 \cap A_3)\)
+2. Only the speakers need service: \(P(A_1 \cap A_2^c \cap A_3)\)
+3. Only the CD player needs service: \(P(A_1 \cap A_2 \cap A_3^c)\)
+
+Calculating each:
+
+\[
+P(A_1^c \cap A_2 \cap A_3) = 0.05 \times 0.98 \times 0.8 = 0.0392
+\]
+\[
+P(A_1 \cap A_2^c \cap A_3) = 0.95 \times 0.02 \times 0.8 = 0.0152
+\]
+\[
+P(A_1 \cap A_2 \cap A_3^c) = 0.95 \times 0.98 \times 0.2 = 0.1862
+\]
+
+Adding these probabilities together:
+\[
+P(\text{exactly one needs service}) = 0.0392 + 0.0152 + 0.1862
+\]
+\[
+P(\text{exactly one needs service}) = 0.2406
+\]
+Therefore, the probability that exactly one of the three components needs service during the warranty period is 0.2406 or 24.06\%.
+
+\section*{Problem 3: Probability Distribution of Telephone Line Usage}
+
+A mail-order computer business has six telephone lines. Let \(X\) denote the number of lines in use at a specified time. Suppose the probability distribution of \(X\) is as given in the accompanying table:
+
+\[
+\begin{array}{|c|ccccccc|}
+\hline
+x & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+P(x) & 0.10 & 0.15 & 0.20 & 0.25 & 0.20 & 0.06 & 0.04 \\
+\hline
+\end{array}
+\]
+
+We will calculate the probability of each of the following events:
+
+\subsection*{(a) What is the probability that at most three lines are in use?}
+
+To find the probability that at most three lines are in use, we sum the probabilities for \(X = 0, 1, 2, 3\):
+\[
+P(X \leq 3) = P(0) + P(1) + P(2) + P(3) = 0.10 + 0.15 + 0.20 + 0.25 = 0.70
+\]
+
+\textbf{Answer:} The probability that at most three lines are in use is \(0.70\) or \(70\%\).
+
+\subsection*{(b) What is the probability that fewer than three lines are in use?}
+
+To find the probability that fewer than three lines are in use, we sum the probabilities for \(X = 0, 1, 2\):
+\[
+P(X < 3) = P(0) + P(1) + P(2) = 0.10 + 0.15 + 0.20 = 0.45
+\]
+
+\textbf{Answer:} The probability that fewer than three lines are in use is \(0.45\) or \(45\%\).
+
+\subsection*{(c) What is the probability that at least three lines are in use?}
+
+To find the probability that at least three lines are in use, we sum the probabilities for \(X = 3, 4, 5, 6\):
+\[
+P(X \geq 3) = P(3) + P(4) + P(5) + P(6) = 0.25 + 0.20 + 0.06 + 0.04 = 0.55
+\]
+
+\textbf{Answer:} The probability that at least three lines are in use is \(0.55\) or \(55\%\).
+
+\subsection*{(d) What is the probability that between two and five lines, inclusive, are in use?}
+
+To find the probability that between two and five lines, inclusive, are in use, we sum the probabilities for \(X = 2, 3, 4, 5\):
+\[
+P(2 \leq X \leq 5) = P(2) + P(3) + P(4) + P(5) = 0.20 + 0.25 + 0.20 + 0.06 = 0.71
+\]
+
+\textbf{Answer:} The probability that between two and five lines, inclusive, are in use is \(0.71\) or \(71\%\).
+
+\subsection*{(e) What is the probability that between two and four lines, inclusive, are not in use?}
+
+The number of lines not in use is \(6 - X\). We need to find \(P(2 \leq 6 - X \leq 4)\), which simplifies to \(2 \leq 6 - X \leq 4\).
+
+Subtracting 6 from all parts:
+\[
+-4 \leq -X \leq -2
+\]
+
+Multiplying all parts by \(-1\) (and reversing inequalities):
+\[
+4 \geq X \geq 2
+\]
+
+So we need \(P(2 \leq X \leq 4)\):
+\[
+P(2 \leq X \leq 4) = P(2) + P(3) + P(4) = 0.20 + 0.25 + 0.20 = 0.65
+\]
+
+\textbf{Answer:} The probability that between two and four lines, inclusive, are not in use is \(0.65\) or \(65\%\).
+
+\subsection*{(f) What is the probability that at least four lines are not in use?}
+
+At least four lines are not in use means that the number of lines not in use is \(\geq 4\). So \(6 - X \geq 4\), which simplifies to \(X \leq 2\).
+
+Thus,
+\[
+P(X \leq 2) = P(0) + P(1) + P(2) = 0.10 + 0.15 + 0.20 = 0.45
+\]
+
+\textbf{Answer:} The probability that at least four lines are not in use is \(0.45\) or \(45\%\).
+
+% Problem 4
+\section*{Problem 4: ATM Usage Probability Analysis}
+
+A branch of a certain bank in New York City has six ATMs. Let \(X\) represent the number of machines in use at a particular time of day. The cumulative distribution function (cdf) of \(X\) is as follows:
+
+\[
+F(x) = 
+\begin{cases} 
+0 & \text{for } x < 0, \\
+0.06 & \text{for } 0 \leq x < 1, \\
+0.19 & \text{for } 1 \leq x < 2, \\
+0.39 & \text{for } 2 \leq x < 3, \\
+0.67 & \text{for } 3 \leq x < 4, \\
+0.92 & \text{for } 4 \leq x < 5, \\
+0.97 & \text{for } 5 \leq x < 6, \\
+1 & \text{for } x \geq 6.
+\end{cases}
+\]
+
+We will calculate the following probabilities directly from the cdf:
+
+\subsection*{(a) Calculate \( p(2) = P(X = 2) \)}
+
+We can find \( P(X = 2) \) by computing the difference in the cdf at \( x = 2 \):
+
+\[
+P(X = 2) = F(2) - F(2^-) = 0.39 - 0.19 = 0.20
+\]
+
+\textbf{Answer:} \( P(X = 2) = 0.20 \) or \( 20\% \).
+
+\subsection*{(b) Calculate \( P(X > 3) \)}
+
+To calculate \( P(X > 3) \), we subtract the cdf value at \( x = 3 \) from 1:
+
+\[
+P(X > 3) = 1 - F(3) = 1 - 0.67 = 0.33
+\]
+
+\textbf{Answer:} \( P(X > 3) = 0.33 \) or \( 33\% \).
+
+\subsection*{(c) Calculate \( P(2 \leq X \leq 5) \)}
+
+We calculate \( P(2 \leq X \leq 5) \) by taking the difference of the cdf at \( x = 5 \) and \( x = 2^- \):
+
+\[
+P(2 \leq X \leq 5) = F(5) - F(2^-) = 0.97 - 0.19 = 0.78
+\]
+
+Alternatively, summing the probabilities:
+
+\[
+\begin{aligned}
+P(2 \leq X \leq 5) &= p(2) + p(3) + p(4) + p(5) \\
+&= 0.20 + 0.28 + 0.25 + 0.05 = 0.78
+\end{aligned}
+\]
+
+\textbf{Answer:} \( P(2 \leq X \leq 5) = 0.78 \) or \( 78\% \).
+
+\subsection*{(d) Calculate \( P(2 < X < 5) \)}
+
+To find \( P(2 < X < 5) \), we compute the difference of the cdf at \( x = 4 \) and \( x = 2 \):
+
+\[
+P(2 < X < 5) = F(4) - F(2) = 0.92 - 0.39 = 0.53
+\]
+
+Alternatively, summing the probabilities:
+
+\[
+P(2 < X < 5) = p(3) + p(4) = 0.28 + 0.25 = 0.53
+\]
+
+\textbf{Answer:} \( P(2 < X < 5) = 0.53 \) or \( 53\% \).
+
+
+% Problem 5
+\section*{Problem 5: Expected Value and Variance of Freezer Capacities}
+
+A certain brand of upright freezer is available in three different rated capacities: 13.5 ft\(^3\), 15.9 ft\(^3\), and 19.1 ft\(^3\). Let \(X\) be the rated capacity (in cubic feet) of a freezer of this brand sold at a certain store. Suppose that \(X\) has the probability mass function (pmf) as shown in the table below:
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+x & 13.5 & 15.9 & 19.1 \\
+\hline
+p(x) & 0.2 & 0.5 & 0.3 \\
+\hline
+\end{array}
+\]
+
+We will answer the following questions:
+
+\subsection*{(a) Compute \( E(X) \), \( E(X^2) \), and \( \text{Var}(X) \)}
+
+To compute the expected value \( E(X) \), we use the formula:
+
+\[
+E(X) = \sum x \cdot p(x)
+\]
+
+Calculations:
+
+\[
+\begin{aligned}
+E(X) &= (13.5)(0.2) + (15.9)(0.5) + (19.1)(0.3) \\
+&= 2.7 + 7.95 + 5.73 \\
+&= 16.38
+\end{aligned}
+\]
+
+Thus, the expected capacity is \( E(X) = 16.38 \) ft\(^3\).
+
+Next, we compute \( E(X^2) \):
+
+\[
+E(X^2) = \sum x^2 \cdot p(x)
+\]
+
+Calculations:
+
+\[
+\begin{aligned}
+E(X^2) &= (13.5^2)(0.2) + (15.9^2)(0.5) + (19.1^2)(0.3) \\
+&= (182.25)(0.2) + (252.81)(0.5) + (364.81)(0.3) \\
+&= 36.45 + 126.405 + 109.443 \\
+&= 272.298
+\end{aligned}
+\]
+
+Therefore, \( E(X^2) = 272.298 \) ft\(^6\).
+
+Now, we compute the variance \( \text{Var}(X) \):
+
+\[
+\text{Var}(X) = E(X^2) - [E(X)]^2 = 272.298 - (16.38)^2 = 272.298 - 268.3044 = 3.9936
+\]
+
+Thus, the variance is \( \text{Var}(X) = 3.9936 \) ft\(^6\).
+
+\subsection*{(b) If the price of a freezer having capacity \( X \) is \( Y = 70X - 650 \), what is the expected price paid by the next customer to buy a freezer?}
+
+We are given the price function:
+
+\[
+Y = 70X - 650
+\]
+
+To find \( E(Y) \), we use the linearity of expectation:
+
+\[
+E(Y) = E(70X - 650) = 70E(X) - 650
+\]
+
+Substituting \( E(X) = 16.38 \):
+
+\[
+E(Y) = 70 \times 16.38 - 650 = 1146.6 - 650 = 496.6
+\]
+
+Therefore, the expected price paid by the next customer is \$496.60.
+
+\subsection*{(c) What is the variance of the price paid by the next customer?}
+
+The variance of a linear function \( Y = aX + b \) is:
+
+\[
+\text{Var}(Y) = a^2 \text{Var}(X)
+\]
+
+Using \( a = 70 \) and \( \text{Var}(X) = 3.9936 \):
+
+\[
+\text{Var}(Y) = 70^2 \times 3.9936 = 4900 \times 3.9936 = 19568.64
+\]
+
+Therefore, the variance of the price paid by the next customer is \$19,568.64.
+
+\end{document}
+

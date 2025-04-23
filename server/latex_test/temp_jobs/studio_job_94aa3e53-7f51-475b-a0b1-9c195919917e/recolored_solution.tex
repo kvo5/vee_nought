@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\geometry{letterpaper, margin=1in}
+
+\title{Math Problems}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Question 1:}
+\[ \int \sin^2 x \cos^3 x \, dx \]
+
+\textbf{Solution 1:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{We use the identity $\cos^2 x = 1 - \sin^2 x$ to rewrite the integral:
+\[ \int \sin^2 x \cos^3 x \, dx = \int \sin^2 x \cos^2 x \cos x \, dx = \int \sin^2 x (1 - \sin^2 x) \cos x \, dx \]
+Let $u = \sin x$, so $du = \cos x \, dx$. Then the integral becomes:
+\[ \int u^2 (1 - u^2) \, du = \int (u^2 - u^4) \, du = \frac{u^3}{3} - \frac{u^5}{5} + C \]
+Substituting back $u = \sin x$, we get:
+\[ \frac{\sin^3 x}{3} - \frac{\sin^5 x}{5} + C \]}
+
+\bigskip
+
+\textbf{Question 2:}
+\[ \int \sin^3 \theta \cos^4 \theta \, d\theta \]
+
+\textbf{Solution 2:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{We use the identity $\sin^2 \theta = 1 - \cos^2 \theta$ to rewrite the integral:
+\[ \int \sin^3 \theta \cos^4 \theta \, d\theta = \int \sin^2 \theta \cos^4 \theta \sin \theta \, d\theta = \int (1 - \cos^2 \theta) \cos^4 \theta \sin \theta \, d\theta \]
+Let $u = \cos \theta$, so $du = -\sin \theta \, d\theta$. Then the integral becomes:
+\[ \int (1 - u^2) u^4 (-du) = \int (u^6 - u^4) \, du = \frac{u^7}{7} - \frac{u^5}{5} + C \]
+Substituting back $u = \cos \theta$, we get:
+\[ \frac{\cos^7 \theta}{7} - \frac{\cos^5 \theta}{5} + C \]}
+
+\bigskip
+
+\textbf{Question 3:}
+\[ \int_0^{\pi/2} \sin^7 \theta \cos^5 \theta \, d\theta \]
+
+\textbf{Solution 3:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{Let $u = \cos \theta$, so $du = -\sin \theta \, d\theta$. When $\theta = 0$, $u = 1$; when $\theta = \pi/2$, $u = 0$.  Then we have:
+\begin{align*} \int_0^{\pi/2} \sin^7 \theta \cos^5 \theta \, d\theta &= \int_1^0 (1 - u^2)^3 u^5 (-du) \\ &= \int_0^1 (1 - 3u^2 + 3u^4 - u^6) u^5 \, du \\ &= \int_0^1 (u^5 - 3u^7 + 3u^9 - u^{11}) \, du \\ &= \left[ \frac{u^6}{6} - \frac{3u^8}{8} + \frac{3u^{10}}{10} - \frac{u^{12}}{12} \right]_0^1 \\ &= \frac{1}{6} - \frac{3}{8} + \frac{3}{10} - \frac{1}{12} = \frac{20 - 45 + 36 - 10}{120} = \frac{1}{120} \end{align*} }
+
+\bigskip
+
+\textbf{Question 4:}
+\[ \int_0^{\pi/2} \sin^5 x \, dx \]
+
+\textbf{Solution 4:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{We use the reduction formula for $\int \sin^n x \, dx$:
+\[ \int \sin^n x \, dx = -\frac{1}{n} \sin^{n-1} x \cos x + \frac{n-1}{n} \int \sin^{n-2} x \, dx \]
+For $n=5$:
+\begin{align*} \int_0^{\pi/2} \sin^5 x \, dx &= \left[ -\frac{1}{5} \sin^4 x \cos x \right]_0^{\pi/2} + \frac{4}{5} \int_0^{\pi/2} \sin^3 x \, dx \\ &= 0 + \frac{4}{5} \left( \left[ -\frac{1}{3} \sin^2 x \cos x \right]_0^{\pi/2} + \frac{2}{3} \int_0^{\pi/2} \sin x \, dx \right) \\ &= \frac{4}{5} \left( 0 + \frac{2}{3} [-\cos x]_0^{\pi/2} \right) \\ &= \frac{4}{5} \left( \frac{2}{3} (0 - (-1)) \right) = \frac{8}{15} \end{align*} }
+
+\bigskip
+
+\textbf{Question 5:}
+\[ \int \sin^2 (\pi x) \cos^5 (\pi x) \, dx \]
+
+\textbf{Solution 5:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{Let $u = \sin(\pi x)$, so $du = \pi \cos(\pi x) \, dx$.  Then $\cos^2(\pi x) = 1 - u^2$.
+\[ \int \sin^2 (\pi x) \cos^5 (\pi x) \, dx = \int u^2 (1-u^2)^2 \cos(\pi x) \, dx = \frac{1}{\pi} \int u^2 (1 - 2u^2 + u^4) \, du \]
+\[ = \frac{1}{\pi} \int (u^2 - 2u^4 + u^6) \, du = \frac{1}{\pi} \left( \frac{u^3}{3} - \frac{2u^5}{5} + \frac{u^7}{7} \right) + C \]
+Substituting back, we have:
+\[ \frac{1}{\pi} \left( \frac{\sin^3(\pi x)}{3} - \frac{2\sin^5(\pi x)}{5} + \frac{\sin^7(\pi x)}{7} \right) + C \]}
+
+\bigskip
+
+\textbf{Question 6:}
+\[ \int \frac{\sin^3 (\sqrt{x})}{\sqrt{x}} \, dx \]
+
+\textbf{Solution 6:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{Let $u = \sqrt{x}$, so $u^2 = x$ and $2u \, du = dx$. Then
+\[ \int \frac{\sin^3 (\sqrt{x})}{\sqrt{x}} \, dx = \int \frac{\sin^3 u}{u} 2u \, du = 2 \int \sin^3 u \, du = 2 \int \sin^2 u \sin u \, du = 2 \int (1 - \cos^2 u) \sin u \, du \]
+Let $v = \cos u$, so $dv = -\sin u \, du$. Then
+\[ 2 \int (1 - v^2) (-dv) = 2 \int (v^2 - 1) \, dv = 2 \left( \frac{v^3}{3} - v \right) + C = \frac{2}{3} \cos^3 u - 2 \cos u + C \]
+Substituting back $u = \sqrt{x}$, we get:
+\[ \frac{2}{3} \cos^3 (\sqrt{x}) - 2 \cos (\sqrt{x}) + C \]}
+
+\bigskip
+
+\textbf{Question 7:}
+\[ \int_0^{\pi/2} \cos^2 \theta \, d\theta \]
+
+\textbf{Solution 7:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{We use the identity $\cos^2 \theta = \frac{1 + \cos(2\theta)}{2}$:
+\[ \int_0^{\pi/2} \cos^2 \theta \, d\theta = \int_0^{\pi/2} \frac{1 + \cos(2\theta)}{2} \, d\theta = \frac{1}{2} \left[ \theta + \frac{\sin(2\theta)}{2} \right]_0^{\pi/2} = \frac{1}{2} \left( \frac{\pi}{2} + 0 - 0 \right) = \frac{\pi}{4} \]}
+
+\bigskip
+
+\textbf{Question 8:}
+\[ \int_0^{2\pi} \sin^2 \left( \frac{\theta}{3} \right) \, d\theta \]
+
+\textbf{Solution 8:}
+\textcolor[rgb]{1.000, 0.000, 0.000}{We use the identity $\sin^2 x = \frac{1 - \cos(2x)}{2}$:
+\[ \int_0^{2\pi} \sin^2 \left( \frac{\theta}{3} \right) \, d\theta = \int_0^{2\pi} \frac{1 - \cos \left( \frac{2\theta}{3} \right)}{2} \, d\theta = \frac{1}{2} \left[ \theta - \frac{3}{2} \sin \left( \frac{2\theta}{3} \right) \right]_0^{2\pi} \]
+\[ = \frac{1}{2} \left( 2\pi - \frac{3}{2} \sin \left( \frac{4\pi}{3} \right) - 0 + 0 \right) = \frac{1}{2} \left( 2\pi - \frac{3}{2} \left( -\frac{\sqrt{3}}{2} \right) \right) = \pi + \frac{3\sqrt{3}}{8} \]}
+
+\end{document}
